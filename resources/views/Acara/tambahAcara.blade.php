@@ -89,11 +89,9 @@
                           {!! Form::label('Divisi')!!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Choose option</option>
-                            <option>Option one</option>
-                            <option>Option two</option>
-                          </select>
+                            {!! Form::text('divisi', null,
+                                array('required',
+                                    'class'=>'form-control')) !!}
                       </div>
                     </div>
 

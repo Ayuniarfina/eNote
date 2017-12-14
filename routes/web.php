@@ -19,8 +19,8 @@ Route::resource('Acara', 'AcaraController');
 Route::resource('Notulensi', 'NotulensiController');
 Route::resource('Sidebar', 'SidebarController');
 
-Route::get('/room', 'AcaraController@index')->name('room');
 Route::get('/room/notulensi/{id}', 'NotulensiController@index');
+Route::get('/room/{id_acara}', 'AcaraController@index');
 
 Auth::routes();
 

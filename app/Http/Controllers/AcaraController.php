@@ -15,10 +15,11 @@ class AcaraController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($id_acara, Request $request)
     {
-      $acaras = DB::table('acaras')->get();
-      $notulensis = DB::table('notulensis')->get();
+      $id_user = $request->user()->id;
+      $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
+      $notulensis = DB::table('notulensis')->where('id_acara', $id_acara)->get();
       return view('Acara.room', ['notulensis' => $notulensis], ['acaras' => $acaras] );
     }
 
@@ -60,7 +61,7 @@ class AcaraController extends Controller
         $acara->change_by= $request->user()->id;
         $acara->save();
 
-        return redirect()->route('Acara.show', $acara->id);
+        return redirect()->route('home', $acara->id);
     }
 
     /**

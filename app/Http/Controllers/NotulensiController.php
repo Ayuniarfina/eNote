@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class NotulensiController extends Controller
 {
-    public function index($id)
+    public function index($id, Request $request)
     {
+      $id_user = $request->user()->id;
+      $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
       $notulensi = DB::table('notulensis')->where('id_notulensi', $id)->get();
-      $acaras = DB::table('acaras')->get();
       return view('Notulensi.viewNotulensi', ['notulensi'=>$notulensi], ['acaras'=>$acaras]);
     }
 
@@ -24,7 +25,7 @@ class NotulensiController extends Controller
       return view('Notulensi.tambahNotulensi', ['acaras' => $acaras]);
     }
 
-    public function store(Request $request)
+    public function store($id_acara, Request $request)
     {
         // validate
         $this->validate($request, array(

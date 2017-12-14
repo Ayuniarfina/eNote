@@ -6,7 +6,7 @@
 
     <div class="page-title">
       <div class="title_left">
-        <a href="{{ url('/room') }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+        <a href="{{ url('room/'.$acara->id_acara) }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
         <h3>Notulensi <small></small></h3>
       </div>
 
@@ -32,19 +32,10 @@
             <h2><?php echo $notulensis->judul; ?></h2>
 
             <ul class="nav navbar-right panel_toolbox">
-              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Settings 1</a>
-                  </li>
-                  <li><a href="#">Settings 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a class="close-link"><i class="fa fa-close"></i></a>
-              </li>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></button>
+              </div>
             </ul>
             <div class="clearfix"></div>
           </div>
@@ -56,6 +47,7 @@
               <div class="col-sm-12 mail_view">
                 <div class="inbox-body">
                   <div class="mail_heading row">
+
                     <div class="col-md-8">
 
                     </div>
@@ -73,11 +65,13 @@
                     <p><?php echo $notulensis->kesimpulan;?></p>
                   </div>
 
-                  <div class="btn-group">
-                    <button class="btn btn-sm btn-primary" type="button"><i class="fa fa-reply"></i> Reply</button>
-                    <button class="btn btn-sm btn-default" type="button"  data-placement="top" data-toggle="tooltip" data-original-title="Forward"><i class="fa fa-share"></i></button>
-                    <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i></button>
-                    <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></button>
+                  <div class="form-group">
+                    <br>
+                        <textarea id="message" placeholder="Tulis komentar kamu disini" required="" class="form-control" name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="50" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
+                            data-parsley-validation-threshold="10"></textarea>
+
+                          <br/>
+                          <span class="btn btn-primary">Kirim</span>
                   </div>
                 </div>
 

@@ -35,7 +35,7 @@
                   <li><a><i class="fa fa-home"></i> My room <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <?php foreach ($acaras as $acar ): ?>
-                      <li><a href="{{ route('room') }}"><?php echo $acar -> name; ?></a></li>
+                      <li><a href="{{ url('room/'.$acar->id_acara) }}"><?php echo $acar -> name; ?></a></li>
                       <?php endforeach; ?>
                     </ul>
                   </li>

@@ -30,8 +30,8 @@
                           <ul class="bs-glyphicons-list">
                             <?php foreach ($acaras as $acara ): ?>
                               <li>
-                                <a href=""><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-                                <a href="{{ route('room') }}"><span class="glyphicon-class"><?php echo $acara -> name; ?></span></a>
+                                <a href="{{ url('room/'.$acara->id_acara) }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                                <a href="{{ url('room/'.$acara->id_acara) }}"><span class="glyphicon-class"><?php echo $acara -> name; ?></span></a>
                               </li>
                             <?php endforeach; ?>
                             <li>
