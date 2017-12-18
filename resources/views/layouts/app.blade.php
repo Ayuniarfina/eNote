@@ -27,7 +27,8 @@
   <link href="{{asset('new/vendors/starrr/dist/starrr.css')}}" rel="stylesheet">
   <!-- bootstrap-daterangepicker -->
   <link href="{{asset('new/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-
+	<!-- Dropzone.js -->
+	<link href="{{asset('new/vendors/dropzone/dist/min/dropzone.min.css')}}" rel="stylesheet">
 	<!-- Custom Theme Style -->
 	<link href="{{asset('new/build/css/custom.min.css')}}" rel="stylesheet">
 </head>
@@ -181,6 +182,9 @@
     <!-- bootstrap-daterangepicker -->
     <script src="{{asset('new/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('new/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+		<!-- Dropzone.js -->
+    <script src="{{asset('new/vendors/dropzone/dist/min/dropzone.min.js')}}"></script>
+
 
     <!-- Custom Theme Scripts -->
     <script src="{{asset('new/build/js/custom.min.js')}}"></script>

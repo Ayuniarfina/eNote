@@ -25,7 +25,7 @@ class NotulensiController extends Controller
       return view('Notulensi.tambahNotulensi', ['acaras' => $acaras]);
     }
 
-    public function store($id_acara, Request $request)
+    public function store(Request $request)
     {
         // validate
         $this->validate($request, array(
@@ -49,11 +49,11 @@ class NotulensiController extends Controller
         $notulensi->kesimpulan = $request->kesimpulan;
         $notulensi->id_user= $request->user()->id;
         $notulensi->change_by= $request->user()->id;
-        $notulensi->id_acara= 0;
+        $notulensi->id_acara= $id_acara;
         $notulensi->id_divisi=0;
 
         $notulensi->save();
-
+        
         return redirect()->route('Notulensi.show', $notulensi->id);
     }
 

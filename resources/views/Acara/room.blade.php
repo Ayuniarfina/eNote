@@ -11,14 +11,8 @@
               </div>
 
               <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                  </div>
-                </div>
+                  <button class="btn btn-success pull-right"><a href="{{ url('/room/upload')}}"><i class="fa fa-upload"></i>  Upload File</a></button>
+                  <button class="btn btn-danger pull-right" style="margin-right: 5px;"><a href="{{ url('/room/tugas')}}"><i class="fa fa-tasks"></i>  Buat Tugas</a></button>
               </div>
             </div>
             <div class="clearfix"></div>

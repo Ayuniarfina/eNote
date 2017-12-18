@@ -17,10 +17,14 @@ Route::get('/', function () {
 
 Route::resource('Acara', 'AcaraController');
 Route::resource('Notulensi', 'NotulensiController');
-Route::resource('Sidebar', 'SidebarController');
+Route::resource('Document', 'DocumentController');
+Route::resource('Tugas', 'TugasController');
 
 Route::get('/room/notulensi/{id}', 'NotulensiController@index');
+Route::get('/room/upload', 'DocumentController@index', 'DocumentController@store');
+Route::get('/room/tugas', 'TugasController@index', 'DocumentController@store');
 Route::get('/room/{id_acara}', 'AcaraController@index');
+Route::get('/room/create/{id_acara}', 'NotulensiController@create');
 
 Auth::routes();
 

@@ -6,7 +6,7 @@
 
     <div class="page-title">
       <div class="title_left">
-        <a href="{{ url('room/'.$acara->id_acara) }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+        <a href=""><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
         <h3>Notulensi <small></small></h3>
       </div>
 
