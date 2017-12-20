@@ -23,7 +23,7 @@
                           {!! Form::label('Deskripsi')!!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                          {!! Form::text('name', null,
+                          {!! Form::text('deskripsi', null,
                               array('required',
                                     'class'=>'form-control')) !!}
                       </div>

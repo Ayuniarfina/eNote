@@ -139,7 +139,13 @@
 	      <!-- /page content -->
 
 	      <!-- footer content -->
-				@yield('footer')
+				<footer>
+          <div class="pull-right">
+            eNote - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+
 	      <!-- /footer content -->
 
 	    </div>

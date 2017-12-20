@@ -20,12 +20,13 @@ class AcaraController extends Controller
       $id_user = $request->user()->id;
       $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
       $notulensis = DB::table('notulensis')->where('id_acara', $id_acara)->get();
-      return view('Acara.room', ['notulensis' => $notulensis], ['acaras' => $acaras] );
+      return view('Acara.room', compact('id_acara','notulensis','acaras'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-      $acaras = DB::table('acaras')->get();
+      $id_user = $request->user()->id;
+      $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
       return view('Acara.tambahAcara', ['acaras' => $acaras]);
     }
 

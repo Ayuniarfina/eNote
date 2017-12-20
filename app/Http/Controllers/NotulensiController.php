@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class NotulensiController extends Controller
 {
-    public function index($id, Request $request)
+    public function index($id)
     {
-      $id_user = $request->user()->id;
+      $id_user = Auth::user()->id;
       $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
       $notulensi = DB::table('notulensis')->where('id_notulensi', $id)->get();
       return view('Notulensi.viewNotulensi', ['notulensi'=>$notulensi], ['acaras'=>$acaras]);
@@ -21,9 +21,18 @@ class NotulensiController extends Controller
 
     public function create()
     {
+
       $acaras = DB::table('acaras')->get();
       return view('Notulensi.tambahNotulensi', ['acaras' => $acaras]);
     }
+
+    public function make($id_acara)
+    {
+
+      $acaras = DB::table('acaras')->get();
+      return view('Notulensi.tambahNotulensi', compact('acaras','id_acara'));
+    }
+
 
     public function store(Request $request)
     {
@@ -37,7 +46,6 @@ class NotulensiController extends Controller
             'kesimpulan' => 'required|string|max:255',
 
         ));
-
         //isi  database
         $notulensi=new Notulensi;
         $notulensi->judul = $request->judul;
@@ -49,12 +57,12 @@ class NotulensiController extends Controller
         $notulensi->kesimpulan = $request->kesimpulan;
         $notulensi->id_user= $request->user()->id;
         $notulensi->change_by= $request->user()->id;
-        $notulensi->id_acara= $id_acara;
+        $notulensi->id_acara = $request->id_acara;
         $notulensi->id_divisi=0;
 
         $notulensi->save();
-        
-        return redirect()->route('Notulensi.show', $notulensi->id);
+
+        return redirect()->route('Notulensi.index', [$notulensi->id]);
     }
 
     public function show()

@@ -5,8 +5,9 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <a href="{{ url('/room') }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+                <a href="{{ URL::previous() }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
                 <h3>Tambah Notulensi</h3>
+                <h3>Acara {{ $id_acara}}</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -25,6 +26,10 @@
                      {!! Form::open(array('route' => 'Notulensi.store', 'data-parsley-validate', 'class'=>'form-horizontal form-label-left',
                                      'id'=>'demo-form2')) !!}
 
+                                     {!! Form::hidden('id_acara', $id_acara,
+                                         array('required',
+                                             'class'=>'form-control',
+                                             'type'=>'hidden')) !!}
                     <div class="form-group">
                         <div class="control-label col-md-3 col-sm-3 col-xs-12">
                         {!! Form::label('Judul Notulensi') !!}

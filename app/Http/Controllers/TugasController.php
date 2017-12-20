@@ -4,90 +4,57 @@ namespace App\Http\Controllers;
 
 use App\Tugas;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class TugasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $tugas = tugas::get();
-        return view('tugas.tugas',['tugas'=>$tugas]);
+        $tugass = Tugas::get();
+        return view('home');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        return view('tugas.tambahTugas');
+      $id_user = $request->user()->id;
+      $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
+      return view('tugas.tambahTugas', ['acaras' => $acaras]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $tugas = new tugas;
-        $tugas->deskripsi = $request->deskripsi;
-        $tugas->id_acara= 0;
-        $tugas->change_by= $request->user()->id;
+      $tugas = new tugas;
+      $tugas->deskripsi = $request->deskripsi;
+      $tugas->id_acara= 0;
+      $tugas->change_by= $request->user()->id;
 
-        $tugas->save();
+      $tugas->save();
 
-        return Redirect::back();
+      return view('home');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

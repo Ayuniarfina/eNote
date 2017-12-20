@@ -46,7 +46,7 @@ class DocumentController extends Controller
 
       $dokumen->save();
 
-      return view('dokumen.dokumen');
+      return view('Documents.upload');
   }
 
   public function show($id)

@@ -30,8 +30,8 @@
                               </li>
                             <?php endforeach; ?>
                             <li>
-                              <a href="{{ route('Notulensi.create') }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                              <a href="{{ route('Notulensi.create') }}"><span class="glyphicon-class">Tambahkan Notulensi</span></a>
+                              <a href="{{ url('/make',$id_acara) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                              <a href="{{ url('/make',$id_acara) }}"><span class="glyphicon-class">Tambahkan Notulensi</span></a>
                             </li>
                     </div>
                   </div>
