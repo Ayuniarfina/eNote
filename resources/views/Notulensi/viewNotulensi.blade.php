@@ -33,8 +33,10 @@
 
             <ul class="nav navbar-right panel_toolbox">
               <div class="btn-group">
-                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></button>
+                <a href="{{ route('Notulensi.edit', $notulensis->id_notulensi) }}" method="GET" class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+
+                <button class="btn btn-sm btn-default" type="button" data-placement="top" 
+                  data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></button>
               </div>
             </ul>
             <div class="clearfix"></div>
@@ -71,7 +73,7 @@
                             data-parsley-validation-threshold="10"></textarea>
 
                           <br/>
-                          <span class="btn btn-primary">Kirim</span>
+                          <span href="{{ route('komentar.store') }}" class="btn btn-primary">Kirim</span>
                   </div>
                 </div>
 

@@ -19,6 +19,7 @@ Route::resource('Acara', 'AcaraController');
 Route::resource('Notulensi', 'NotulensiController');
 Route::resource('Document', 'DocumentController');
 Route::resource('Tugas', 'TugasController');
+Route::resource('komentar', 'KomentarController');
 
 Route::get('/room/notulensi/{id}', 'NotulensiController@index');
 Route::get('/room/upload', 'DocumentController@index', 'DocumentController@store');
@@ -27,6 +28,7 @@ Route::get('/room/{id_acara}', 'AcaraController@index');
 Route::get('/room/{id_acara}/notulensi/{id_note}', 'NotulensiController@index');
 Route::get('/room/create/{id_acara}', 'NotulensiController@create');
 Route::get('/make/{id_acara}', 'NotulensiController@make');
+Route::get('/room/{id_acara}', 'TugasController@index');
 
 Auth::routes();
 

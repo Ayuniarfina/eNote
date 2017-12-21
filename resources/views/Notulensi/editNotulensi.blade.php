@@ -6,7 +6,7 @@
             <div class="page-title">
               <div class="title_left">
                 <a href="{{ URL::previous() }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
-                <h3>Tambah Notulensi</h3>
+                <h3>Edit Notulensi</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -22,8 +22,8 @@
                         </div>
                     @endif
 
-                     {!! Form::open(array('route' => 'Notulensi.store', 'data-parsley-validate', 'class'=>'form-horizontal form-label-left',
-                                     'id'=>'demo-form2')) !!}
+                     {!! Form::open(array('route' => ['Notulensi.update', $notulensi->id_notulensi], 'data-parsley-validate', 'class'=>'form-horizontal form-label-left',
+                                     'id'=>'demo-form2', 'method'=>'PUT')) !!}
 
                                      {!! Form::hidden('id_acara', $id_acara,
                                          array('required',
@@ -34,10 +34,9 @@
                         {!! Form::label('Judul Notulensi') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::text('judul', null,
+                        {!! Form::text('judul', $notulensi->judul,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'Judul Notulensi')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -46,10 +45,9 @@
                         {!! Form::label('Tanggal') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::date('tanggal', null,
+                        {!! Form::date('tanggal', $notulensi->tanggal,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'dd/mm/yyyy')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -58,10 +56,9 @@
                         {!! Form::label('Tempat') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::text('tempat', null,
+                        {!! Form::text('tempat', $notulensi->tempat,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'Tempat')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -70,10 +67,9 @@
                         {!! Form::label('Moderator') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::text('moderator', null,
+                        {!! Form::text('moderator', $notulensi->moderator,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'moderator')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -82,10 +78,9 @@
                         {!! Form::label('Topik Rapat') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::text('topik', null,
+                        {!! Form::text('topik', $notulensi->topik,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'Topik Rapat')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -94,10 +89,9 @@
                         {!! Form::label('Jumlah Peserta') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::number('jumlah', null,
+                        {!! Form::number('jumlah', $notulensi->jumlah,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'Jumlah Peserta')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
@@ -106,17 +100,16 @@
                         {!! Form::label('Kesimpulan') !!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        {!! Form::textarea('kesimpulan', null,
+                        {!! Form::textarea('kesimpulan', $notulensi->kesimpulan,
                             array('required',
-                                'class'=>'form-control',
-                                'placeholder'=>'Kesimpulan')) !!}
+                                'class'=>'form-control')) !!}
                       </div>
                     </div>
 
 
                     <div class="form-group">
                       <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        {!! Form::submit('Tambah',
+                        {!! Form::submit('Edit',
                         array('class'=>'btn btn-primary')) !!}
                       </div>
                     </div>

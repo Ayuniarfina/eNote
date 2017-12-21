@@ -8,6 +8,7 @@ use App\Acara;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class NotulensiController extends Controller
 {
@@ -62,7 +63,7 @@ class NotulensiController extends Controller
 
         $notulensi->save();
 
-        return redirect()->route('Notulensi.index', [$notulensi->id]);
+        return redirect()->route('Notulensi.index', [$notulensi->id_notulensi], ['acaras'=>$acaras]);
     }
 
     public function show()
@@ -70,9 +71,12 @@ class NotulensiController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($id_notulensi)
     {
-        //
+        $id_user = Auth::user()->id;
+        $notulensi = Notulensi::find($id_notulensi);
+        $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
+        return view('Notulensi.editNotulensi', ['notulensi'=>$notulensi]);
     }
 
     public function update(Request $request, $id)
@@ -82,6 +86,9 @@ class NotulensiController extends Controller
 
     public function destroy($id)
     {
-        //
+        $id_notulensi=$id;
+        $notulensi=Notulensi::findOrfail($id_notulensi);
+        $notulensi->delete();
+        return Redirect::back();
     }
 }

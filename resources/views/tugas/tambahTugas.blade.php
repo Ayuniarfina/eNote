@@ -20,6 +20,20 @@
 
                     <div class="form-group">
                       <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                          {!! Form::label('Nama Anggota')!!}
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                        <select name="nama" class="form-control select2">
+                          @foreach($users as $us)
+                            <option value="{{$us->id}}">{{$us->name}}</option>
+                          @endforeach
+
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <div class="control-label col-md-3 col-sm-3 col-xs-12">
                           {!! Form::label('Deskripsi')!!}
                       </div>
                       <div class="col-md-6 col-sm-6 col-xs-12">
