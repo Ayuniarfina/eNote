@@ -22,7 +22,7 @@ class TugasController extends Controller
     {
       $id_user = $request->user()->id;
       $tugas = DB::table('tugas')->where('change_by', $id_user)->first();
-      return view('', ['tugas' => $tugas]);
+      
     }
 
     public function create()
@@ -39,7 +39,7 @@ class TugasController extends Controller
 
     public function store(Request $request)
     {
-      $acaras = DB::table('acaras')->get();
+      $tugas = DB::table('tugas')->get();
       
       $tugas = new tugas;
       $tugas->deskripsi = $request->deskripsi;

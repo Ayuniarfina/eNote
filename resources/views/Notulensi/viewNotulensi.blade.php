@@ -33,10 +33,13 @@
 
             <ul class="nav navbar-right panel_toolbox">
               <div class="btn-group">
-                <a href="{{ route('Notulensi.edit', $notulensis->id_notulensi) }}" method="GET" class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-
-                <button class="btn btn-sm btn-default" type="button" data-placement="top" 
-                  data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></button>
+                <a href="{{ route('Notulensi.edit', $notulensis->id_notulensi) }}" method="GET"
+                    class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                {{ Form::open(['method' => 'DELETE', 'route' => ['Notulensi.destroy', $notulensis->id_notulensi]]) }}
+                                        {{ Form::submit('Delete', ['class' => 'btn btn-sm btn-default fa fa-trash-o']) }}
+                                    {{ Form::close() }}
+                <a href="{{route('Notulensi.destroy', $notulensis->id_notulensi)}}" method="DELETE" 
+                    class="btn btn-sm btn-default" type="button" data-placement="top" data-toggle="tooltip" data-original-title="Trash"><i class="fa fa-trash-o"></i></a>
               </div>
             </ul>
             <div class="clearfix"></div>

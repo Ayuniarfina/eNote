@@ -24,11 +24,7 @@
 
                      {!! Form::open(array('route' => ['Notulensi.update', $notulensi->id_notulensi], 'data-parsley-validate', 'class'=>'form-horizontal form-label-left',
                                      'id'=>'demo-form2', 'method'=>'PUT')) !!}
-
-                                     {!! Form::hidden('id_acara', $id_acara,
-                                         array('required',
-                                             'class'=>'form-control',
-                                             'type'=>'hidden')) !!}
+                                     
                     <div class="form-group">
                         <div class="control-label col-md-3 col-sm-3 col-xs-12">
                         {!! Form::label('Judul Notulensi') !!}

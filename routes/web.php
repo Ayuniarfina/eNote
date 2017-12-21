@@ -28,7 +28,7 @@ Route::get('/room/{id_acara}', 'AcaraController@index');
 Route::get('/room/{id_acara}/notulensi/{id_note}', 'NotulensiController@index');
 Route::get('/room/create/{id_acara}', 'NotulensiController@create');
 Route::get('/make/{id_acara}', 'NotulensiController@make');
-Route::get('/room/{id_acara}', 'TugasController@index');
+Route::get('/room/tugas/{id_acara}', 'TugasController@create');
 
 Auth::routes();
 

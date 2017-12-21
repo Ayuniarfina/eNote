@@ -75,20 +75,39 @@ class NotulensiController extends Controller
     {
         $id_user = Auth::user()->id;
         $notulensi = Notulensi::find($id_notulensi);
-        $acaras = DB::table('acaras')->where('change_by', $id_user)->get();
-        return view('Notulensi.editNotulensi', ['notulensi'=>$notulensi]);
+        $acaras = DB::table('acaras')->get();
+        return view('Notulensi.editNotulensi', ['notulensi'=>$notulensi], ['acaras' => $acaras]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+
+        $notulensi= Notulensi::findOrfail($id);
+        $notulensi->judul = $request->judul;
+        $notulensi->tempat = $request->tempat;
+        $notulensi->tanggal = $request->tanggal;
+        $notulensi->moderator = $request->moderator;
+        $notulensi->topik = $request->topik;
+        $notulensi->jumlah = $request->jumlah;
+        $notulensi->kesimpulan = $request->kesimpulan;
+        $notulensi->id_user= $request->user()->id;
+        $notulensi->change_by= $request->user()->id;
+
+        $notulensi->save();
+        
+        $notulensis = DB::table('notulensis')->where('id_notulensi', $id)->get();
+        $acaras = DB::table('acaras')->get();
+        return view('Notulensi.viewNotulensi', ['notulensi'=>$notulensis], ['acaras'=>$acaras]);
+    
     }
 
     public function destroy($id)
     {
-        $id_notulensi=$id;
         $notulensi=Notulensi::findOrfail($id_notulensi);
         $notulensi->delete();
-        return Redirect::back();
+
+        $notulensis = DB::table('notulensis')->where('id_notulensi', $id)->get();
+        $acaras = DB::table('acaras')->get();
+        return view('Notulensi.viewNotulensi', ['notulensi'=>$notulensis], ['acaras'=>$acaras]);
     }
 }

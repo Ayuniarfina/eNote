@@ -12,7 +12,7 @@
 
               <div class="title_right">
                   <button class="btn btn-success pull-right"><a href="{{ url('/room/upload')}}"><i class="fa fa-upload"></i>  Upload File</a></button>
-                  <button class="btn btn-danger pull-right" style="margin-right: 5px;"><a href="{{ url('/room/tugas')}}"><i class="fa fa-tasks"></i>  Buat Tugas</a></button>
+                  <button class="btn btn-danger pull-right" style="margin-right: 5px;"><a href="{{ url('/room/tugas',$id_acara)}}"><i class="fa fa-tasks"></i>  Buat Tugas</a></button>
               </div>
             </div>
             <div class="clearfix"></div>

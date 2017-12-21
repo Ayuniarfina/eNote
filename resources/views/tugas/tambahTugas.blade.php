@@ -6,7 +6,7 @@
             <div class="page-title">
               <div class="title_left">
                 <a href="{{ url('/home') }}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
-                <h3>Tambah Room Baru</h3>
+                <h3>Tambah Tugas</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -15,6 +15,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
+                    
                     {!! Form::open(array('route'=>'Tugas.store', 'data-parsley-validate', 'class'=>'form-horizontal form-label-left',
                                     'id'=>'demo-form2', 'method'=>'POST')) !!}
 
